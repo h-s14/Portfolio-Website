@@ -12,14 +12,15 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
 
+      - name: Installing Dependencies
+        run: npm install --production
+
       - name: Building The App
-        run: |
-          npm install --production \
-          npm run build
+        run: npm run build
   deploy:
     runs-on: self-hosted
     steps:
       - name: Copying the files to ngx folder
         run: |
-          sudo mv ~/_work/Portfolio-Website/dist/* /var/www/html
+          sudo mv dist/* /var/www/html
           sudo systemctl restart nginx
