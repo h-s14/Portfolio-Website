@@ -10,35 +10,48 @@ const Hero = () => {
   };
   return (
     <>
-      <div className="pl-20 pt-10">
-        <div className="flex w-[25%] items-center justify-center rounded-full">
-          Welcome to my Portfolio
-        </div>
-        <div className="w-[40%] py-5 text-5xl font-bold text-white text-opacity-80 dark:text-gray-300 dark:text-opacity-80">
-          <div className="pl-10">Hi! I'm Harkirat</div>
-          <div className="pb-2 pl-10" style={typingStyle}>
-            A Software Engineer
-          </div>
-        </div>
-        <div className="flex">
-          <div className="pl-10 pr-[23%] text-xl text-white text-opacity-50 dark:text-gray-300 dark:text-opacity-50">
-            I'm a software engineer with a solid background in software
-            development and a passion for emerging technologies. My experience
-            includes full-stack development, blockchain, and artificial
-            intelligence. Proficient in React, Tailwind CSS, and JavaScript,
-            I've contributed to projects that address real-world challenges
-            through innovative solutions.
-            <div className="pt-5 text-3xl">
-              <button className="flex items-center">
-                Let's Connect <CircleChevronRight className="ml-2" />
-              </button>
+      <div className="px-10">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2">
+          <div className="flex flex-col items-center justify-center sm:items-center md:items-start">
+            {/* Div - 1 */}
+            <div className="flex w-[80%] items-center justify-center rounded-full bg-gray-400 bg-opacity-40 py-3 text-xl text-white text-opacity-50 backdrop-blur-md md:my-6 md:h-[10%] md:max-w-[50%] md:py-5">
+              Welcome to my Portfolio
+            </div>
+            {/* Div - 2 */}
+            <div className="w-full pt-5 text-5xl font-bold text-white text-opacity-80 dark:text-gray-300 dark:text-opacity-80">
+              <div className="pl-10 text-3xl md:text-5xl">I'm Harkirat</div>
+              <div
+                className="pb-2 pl-10 text-3xl md:text-5xl"
+                style={typingStyle}
+              >
+                A Software Engineer
+              </div>
+            </div>
+            {/* Div - 3 */}
+            <div className="flex">
+              <div className="pl-10 pr-[5%] text-xl text-white text-opacity-50 dark:text-gray-300 dark:text-opacity-50">
+                I'm a software engineer working in full-stack development,
+                blockchain, and AI. Proficient in React, Tailwind CSS, and
+                JavaScript, I tackle real-world challenges with innovative
+                solutions.
+                <div className="pt-10 text-2xl">
+                  <button className="flex items-center justify-center rounded-full border-2 border-gray-300 border-opacity-60 bg-gray-400 bg-opacity-60 px-2 py-2 backdrop-blur-lg">
+                    Let's Connect <CircleChevronRight className="ml-2" />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="px-16">
+          {/* Div - 4 */}
+          <div className="mt-16 flex items-center justify-center px-32 md:px-40">
             <img
-              src="model.png"
-              className="min-h-96 min-w-96 bg-black"
+              src="model-light.png"
+              className="block bg-transparent dark:hidden"
+              alt="model"
+            />
+            <img
+              src="model-dark.png"
+              className="hidden bg-transparent dark:block"
               alt="model"
             />
           </div>

@@ -13,7 +13,9 @@ const App = () => {
     setDarkMode(!darkMode);
   };
   return (
-    <div className={` ${darkMode ? "dark" : ""} hide-scrollbar`}>
+    <div
+      className={`transition duration-500 ${darkMode ? "dark" : ""} hide-scrollbar`}
+    >
       <Router>
         <NavBar />
         <Routes>

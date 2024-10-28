@@ -8,7 +8,7 @@ export default {
         "t-light": "#4B2E83",
         "t-dark": "#B0B0B0",
 
-        "t-n-light": "#4B2E83",
+        "t-n-light": " #C05C94",
         "t-n-dark": "#B0B0B0",
 
         "t-n-hover-light": "#8A3B8A",
@@ -26,9 +26,11 @@ export default {
         "projects-bg": "linear-gradient(to right, #43cea2, #185a9d)",
         "contact-bg": "linear-gradient(to right, #ff512f, #dd2476)",
         "shared-bg":
-          "linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b) !important",
+          // "linear-gradient(to right, #CBA77A, #6D432C, #000000) !important",
+          "linear-gradient(to right,  #65237A, #000000) !important",
         "dark-shared-bg":
-          "linear-gradient(to right, #141e30, #243b55) !important",
+          // "linear-gradient(to right, #949494, #575757, #000000) !important",
+          "linear-gradient(to right, #D08E6D,#2D2D2D) !important",
       },
     },
   },

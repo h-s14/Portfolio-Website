@@ -15,7 +15,9 @@ const Projects = ({ sharedBg }) => {
         className={`${sharedBg ? "bg-shared-bg dark:bg-dark-shared-bg" : "bg-skills-bg dark:bg-grad-dark"} min-h-screen py-10 pt-20`}
       >
         <div className="flex w-full flex-col items-center justify-center">
-          <div className="flex justify-center px-10 text-3xl">Projects</div>
+          <div className="flex justify-center px-10 text-3xl font-bold text-gray-300">
+            PROJECTS
+          </div>
           <div className="my-5 flex w-[50%] items-center justify-center rounded-full border-2 border-black bg-blue-200 sm:h-10 sm:w-[30%] md:h-16">
             <button
               onClick={prSwitcher}
