@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
 
       - name: Copying the files to ngx folder
         run: |
-          sudo mv dist/* /var/www/portfolio && echo "Files moved successfully." || echo "Failed to move files."
+          sudo cp dist/* /var/www/portfolio && echo "Files moved successfully." || echo "Failed to move files."
 
       - name: Reload Nginx
         run: |
