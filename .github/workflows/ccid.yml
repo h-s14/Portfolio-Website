@@ -16,7 +16,9 @@ jobs:
         run: npm install
 
       - name: Building The App
-        run: npm run build
+        run: |
+          npm run build \
+          pwd
 
       - name: List Directory Contents
         run: ls -R
@@ -26,5 +28,5 @@ jobs:
     steps:
       - name: Copying the files to ngx folder
         run: |
-          sudo mv dist/* /var/www/html
+          sudo mv dist/* /var/www/html/
           sudo systemctl restart nginx
