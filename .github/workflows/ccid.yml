@@ -17,12 +17,7 @@ jobs:
 
       - name: Building The App
         run: |
-          npm run build 
-          pwd
-
-      - name: Copying the files to ngx folder
-        run: |
-          sudo cp dist/* /var/www/portfolio && echo "Files moved successfully." || echo "Failed to move files."
+          npm run build
 
       - name: Reload Nginx
         run: |

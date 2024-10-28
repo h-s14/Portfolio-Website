@@ -6,7 +6,7 @@ const Hero = () => {
     animation: "typing 3s steps(12, end), blink-caret 0.75s step-end infinite",
     whiteSpace: "nowrap",
     overflow: "hidden",
-    borderRight: "2px solid", // Simulates the caret
+    borderRight: "2px solid",
   };
   return (
     <>
@@ -36,7 +36,7 @@ const Hero = () => {
           </div>
 
           <div className="px-16">
-            <img src="" className="h-96 w-96 bg-black" alt="model" />
+            <img src="model.png" className="h-96 w-96 bg-black" alt="model" />
           </div>
         </div>
       </div>
