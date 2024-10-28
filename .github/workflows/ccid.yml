@@ -17,6 +17,9 @@ jobs:
 
       - name: Building The App
         run: npm run build
+
+      - name: List Directory Contents
+        run: ls -R
   deploy:
     needs: build
     runs-on: self-hosted
