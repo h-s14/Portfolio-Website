@@ -24,3 +24,7 @@ jobs:
         run: |
           sudo rm -rf /var/www/html/*
           sudo mv dist/* /var/www/html/ && echo "Files moved successfully." || echo "Failed to move files."
+
+      - name: Reload Nginx
+        run: |
+          sudo systemctl reload nginx
