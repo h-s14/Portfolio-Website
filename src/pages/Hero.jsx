@@ -43,7 +43,7 @@ const Hero = () => {
             </div>
           </div>
           {/* Div - 4 */}
-          <div className="mt-16 flex items-center justify-center px-32 md:px-40">
+          <div className="mt-16 flex items-center justify-center px-32 md:px-40 2xl:px-64">
             <img
               src="model-light.png"
               className="block bg-transparent dark:hidden"
