@@ -22,5 +22,5 @@ jobs:
 
       - name: Copying the files to ngx folder
         run: |
-          sudo mv dist/* /var/www/html/
-          sudo systemctl restart nginx
+          sudo rm -rf /var/www/html/*
+          sudo mv dist/* /var/www/html/ && echo "Files moved successfully." || echo "Failed to move files."
