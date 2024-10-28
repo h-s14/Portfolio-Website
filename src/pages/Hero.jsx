@@ -36,7 +36,11 @@ const Hero = () => {
           </div>
 
           <div className="px-16">
-            <img src="model.png" className="h-96 w-96 bg-black" alt="model" />
+            <img
+              src="model.png"
+              className="min-h-96 min-w-96 bg-black"
+              alt="model"
+            />
           </div>
         </div>
       </div>
