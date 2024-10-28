@@ -20,12 +20,6 @@ jobs:
           npm run build 
           pwd
 
-      - name: List Directory Contents
-        run: ls -R
-  deploy:
-    needs: build
-    runs-on: self-hosted
-    steps:
       - name: Copying the files to ngx folder
         run: |
           sudo mv dist/* /var/www/html/
