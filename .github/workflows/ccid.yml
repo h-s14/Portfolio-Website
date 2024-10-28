@@ -22,8 +22,7 @@ jobs:
 
       - name: Copying the files to ngx folder
         run: |
-          sudo rm -rf /var/www/html/*
-          sudo mv dist/* /var/www/html/ && echo "Files moved successfully." || echo "Failed to move files."
+          sudo mv dist/* /var/www/ && echo "Files moved successfully." || echo "Failed to move files."
 
       - name: Reload Nginx
         run: |
