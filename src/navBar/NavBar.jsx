@@ -27,7 +27,7 @@ const NavBar = () => {
         <div
           className={`flex h-full items-center justify-between px-20 transition-all duration-300 ${navbar ? "bg-nav-grad-light dark:bg-nav-grad-dark" : "bg-gray-300 bg-opacity-10 backdrop-blur-md"}`}
         >
-          <img src="/logo.png" alt="logo" />
+          <img className="w-36 hover:scale-150" src="/logo.png" alt="logo" />
           <div className="flex h-full w-3/5 items-center justify-between text-t-n-light dark:text-t-n-dark">
             <NavLink
               to="/"
