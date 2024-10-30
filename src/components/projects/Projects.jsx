@@ -18,13 +18,13 @@ const Projects = ({ sharedBg }) => {
           <div className="flex justify-center px-10 text-3xl font-bold text-gray-300">
             PROJECTS
           </div>
-          <div className="my-5 flex w-[50%] items-center justify-center rounded-full border-2 border-black bg-blue-200 sm:h-10 sm:w-[30%] md:h-16">
+          <div className="my-5 flex w-[50%] items-center justify-center rounded-full border-2 border-black bg-gray-300 bg-opacity-40 backdrop-blur-lg sm:h-10 sm:w-[30%] md:h-16">
             <button
               onClick={prSwitcher}
-              className="relative flex w-full items-center justify-center rounded-full bg-red-300 sm:h-10 md:h-full"
+              className="relative flex w-full items-center justify-center rounded-full sm:h-10 md:h-full"
             >
               <span
-                className={`absolute left-0 top-0 h-full w-1/2 rounded-full bg-green-300 transition-transform duration-300 ${prSwitch ? "translate-x-0" : "translate-x-full"}`}
+                className={`absolute left-0 top-0 h-full w-1/2 rounded-full bg-shared-bg transition-transform duration-300 dark:bg-dark-shared-bg ${prSwitch ? "translate-x-0" : "translate-x-full"}`}
               ></span>
               <span
                 className={`z-10 flex h-full w-1/2 items-center justify-center rounded-full`}

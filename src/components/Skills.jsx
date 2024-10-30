@@ -74,17 +74,22 @@ const Skills = ({ sharedBg }) => {
               </button>
               <button className="flex min-h-full w-full justify-center">
                 <div className="flex h-[7rem] w-[40%] items-center justify-center rounded-2xl bg-gray-300 bg-opacity-20 pt-1 shadow-lg backdrop-blur-md transition hover:scale-110 sm:h-[10rem] sm:w-[50%] md:h-[15rem] md:w-[60%] lg:h-[17rem] 2xl:h-[20rem]">
-                  <img src="/html.svg" className="h-14" alt="skill" />
+                  <img src="/css.svg" className="h-14" alt="skill" />
                 </div>
               </button>
               <button className="flex min-h-full w-full justify-center">
                 <div className="flex h-[7rem] w-[40%] items-center justify-center rounded-2xl bg-gray-300 bg-opacity-20 pt-1 shadow-lg backdrop-blur-md transition hover:scale-110 sm:h-[10rem] sm:w-[50%] md:h-[15rem] md:w-[60%] lg:h-[17rem] 2xl:h-[20rem]">
-                  <img src="/html.svg" className="h-14" alt="skill" />
+                  <img src="/javascript.svg" className="h-14" alt="skill" />
                 </div>
               </button>
               <button className="flex min-h-full w-full justify-center">
                 <div className="flex h-[7rem] w-[40%] items-center justify-center rounded-2xl bg-gray-300 bg-opacity-20 pt-1 shadow-lg backdrop-blur-md transition hover:scale-110 sm:h-[10rem] sm:w-[50%] md:h-[15rem] md:w-[60%] lg:h-[17rem] 2xl:h-[20rem]">
-                  <img src="/html.svg" className="h-14" alt="skill" />
+                  <img src="/react.svg" className="h-14" alt="skill" />
+                </div>
+              </button>
+              <button className="flex min-h-full w-full justify-center">
+                <div className="flex h-[7rem] w-[40%] items-center justify-center rounded-2xl bg-gray-300 bg-opacity-20 pt-1 shadow-lg backdrop-blur-md transition hover:scale-110 sm:h-[10rem] sm:w-[50%] md:h-[15rem] md:w-[60%] lg:h-[17rem] 2xl:h-[20rem]">
+                  <img src="/node-js.svg" className="h-14" alt="skill" />
                 </div>
               </button>
             </Carousel>
