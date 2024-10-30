@@ -5,32 +5,54 @@ export default {
   theme: {
     extend: {
       colors: {
-        "t-light": "#4B2E83",
-        "t-dark": "#B0B0B0",
+        "t-light": "#E0FFFF",
+        "t-dark": "#D7CFC3",
 
-        "t-n-light": " #C05C94",
+        "t-n-light": " #8cb0a6",
+        "t-n-c-light": " #8c9cb0",
+
         "t-n-dark": "#B0B0B0",
+        "t-n-c-dark": "#D8D8D8",
 
-        "t-n-hover-light": "#8A3B8A",
-        "t-n-hover-dark": "#C67CC2",
+        "nav-grad-light": "#485b56",
+        "nav-grad-dark": "#9a6a52",
+
+        "t-n-hover-light": "#aeb08c",
+        "t-n-c-hover-light": "#9a8cb0",
+
+        "t-n-hover-dark": "#ad7a6d",
+        "t-n-c-hover-dark": "#A1B2B4",
+
+        "skills-bg-light": "#BFA2D9",
+        // "skills-bg-n-light": "#A8D5BA",
+        "skills-bg-n-light": "#94ffed",
+
+        "skills-bg-dark": "#4B5563",
+        "skills-bg-n-dark": "#45280d",
+
+        "send-bg-light": "#7A4C9C",
+        "send-bg-dark": "#A65E2E",
+
+        "skill-t-light": "#FFFFFF",
+        "skill-t-dark": "#bfbdbd",
+
+        "banner-bg-light": "#75697d",
+        "banner-bg-dark": "#1C1C1C",
       },
       backgroundImage: {
-        "grad-light": "linear-gradient(135deg, #D6AEDD, #A27DC8, #E1B7E2)",
-        "grad-dark": "linear-gradient(135deg, #3E2A7E, #7B4B9A, #C57EAE)",
+        // "grad-light": "linear-gradient(135deg, #D6AEDD, #A27DC8, #E1B7E2)",
+        // "grad-dark": "linear-gradient(135deg, #3E2A7E, #7B4B9A, #C57EAE)",
 
-        "nav-grad-light": "linear-gradient(135deg, #C05C94, #F2A6C4, #EAB8E4)",
-        "nav-grad-dark": "linear-gradient(135deg,  #5A2D81, #B95C9E, #DA7D9A)",
+        // "nav-grad-light": "linear-gradient(135deg, #5E0F61, #65237A, #0D0D0D)",
 
         "hero-bg": "linear-gradient(to right, #ff7e5f, #feb47b)",
         "skills-bg": "linear-gradient(to right, #6a11cb, #2575fc)",
         "projects-bg": "linear-gradient(to right, #43cea2, #185a9d)",
         "contact-bg": "linear-gradient(to right, #ff512f, #dd2476)",
-        "shared-bg":
-          // "linear-gradient(to right, #CBA77A, #6D432C, #000000) !important",
-          "linear-gradient(to right,  #65237A, #000000) !important",
-        "dark-shared-bg":
-          // "linear-gradient(to right, #949494, #575757, #000000) !important",
-          "linear-gradient(to right, #D08E6D,#2D2D2D) !important",
+
+        // "shared-bg": "linear-gradient(to right,  #65237A, #000000) !important",
+        // "dark-shared-bg":
+        //   "linear-gradient(to right, #D08E6D,#2D2D2D) !important",
       },
     },
   },

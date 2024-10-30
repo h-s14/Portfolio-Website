@@ -1,7 +1,6 @@
-import { m } from "framer-motion";
-import React, { useState } from "react";
+import { React, useState, forwardRef } from "react";
 
-const ContactUs = () => {
+const ContactUs = forwardRef((props, ref) => {
   const formInitialDetails = {
     firstName: "",
     lastName: "",
@@ -61,7 +60,9 @@ const ContactUs = () => {
         </div>
 
         <div className="flex w-[90%] flex-wrap justify-center rounded-3xl bg-gray-300 bg-opacity-30 p-5 backdrop-blur-md md:w-[50%]">
-          <div className="my-4 w-full text-5xl font-bold">Get In Touch</div>
+          <div className="my-4 flex w-full justify-center text-5xl font-bold">
+            Get In Touch
+          </div>
           <form
             onSubmit={onFormUpdate}
             className="flex flex-wrap items-center justify-center"
@@ -73,7 +74,7 @@ const ContactUs = () => {
                 placeholder="First Name"
                 value={formDetails.firstName}
                 onChange={(e) => onFormUpdate("firstName", e.target.value)}
-                className="h-full w-full rounded-lg border-2 border-black border-opacity-20 bg-transparent pl-10 pr-5 text-gray-600 placeholder-gray-600 outline-none focus:border-blue-500 dark:text-gray-500 dark:placeholder-gray-500"
+                className="h-full w-full rounded-lg border-2 border-t-light border-opacity-20 bg-transparent pl-10 pr-5 text-t-light placeholder-t-light outline-none focus:border-blue-500 dark:border-t-dark dark:text-t-dark dark:placeholder-t-dark dark:focus:border-yellow-500"
               />
             </div>
             {/* Last Name Field */}
@@ -83,7 +84,7 @@ const ContactUs = () => {
                 placeholder="Last Name"
                 value={formDetails.lastName}
                 onChange={(e) => onFormUpdate("lastName", e.target.value)}
-                className="h-full w-full rounded-lg border-2 border-black border-opacity-20 bg-transparent pl-10 pr-5 text-gray-600 placeholder-gray-600 outline-none focus:border-blue-500 dark:text-gray-500 dark:placeholder-gray-500"
+                className="h-full w-full rounded-lg border-2 border-t-light border-opacity-20 bg-transparent pl-10 pr-5 text-t-light placeholder-t-light outline-none focus:border-blue-500 dark:border-t-dark dark:text-t-dark dark:placeholder-t-dark dark:focus:border-yellow-500"
               />
             </div>
             {/* Email Name Field */}
@@ -93,7 +94,7 @@ const ContactUs = () => {
                 placeholder="Email"
                 value={formDetails.email}
                 onChange={(e) => onFormUpdate("email", e.target.value)}
-                className="h-full w-full rounded-lg border-2 border-black border-opacity-20 bg-transparent pl-10 pr-5 text-gray-600 placeholder-gray-600 outline-none focus:border-blue-500 dark:text-gray-500 dark:placeholder-gray-500"
+                className="h-full w-full rounded-lg border-2 border-t-light border-opacity-20 bg-transparent pl-10 pr-5 text-t-light placeholder-t-light outline-none focus:border-blue-500 dark:border-t-dark dark:text-t-dark dark:placeholder-t-dark dark:focus:border-yellow-500"
               />
             </div>
             {/* Phone Number Field */}
@@ -103,7 +104,7 @@ const ContactUs = () => {
                 placeholder="Phone no."
                 value={formDetails.phone}
                 onChange={(e) => onFormUpdate("phone", e.target.value)}
-                className="number-input no-spinner h-full w-full rounded-lg border-2 border-black border-opacity-20 bg-transparent pl-10 pr-5 text-gray-600 placeholder-gray-600 outline-none focus:border-blue-500 dark:text-gray-500 dark:placeholder-gray-500"
+                className="number-input no-spinner h-full w-full rounded-lg border-2 border-t-light border-opacity-20 bg-transparent pl-10 pr-5 text-t-light placeholder-t-light outline-none focus:border-blue-500 dark:border-t-dark dark:text-t-dark dark:placeholder-t-dark dark:focus:border-yellow-500"
               />
             </div>
             {/* Message Field */}
@@ -114,15 +115,14 @@ const ContactUs = () => {
                 placeholder="Message"
                 value={formDetails.message}
                 onChange={(e) => onFormUpdate("message", e.target.value)}
-                className="text:black h-full w-full rounded-lg border-2 border-black border-opacity-20 bg-transparent pl-10 pr-5 pt-5 text-gray-600 placeholder-gray-600 outline-none focus:border-blue-500 dark:text-gray-500 dark:placeholder-gray-500"
+                className="text:black h-full w-full rounded-lg border-2 border-t-light border-opacity-20 bg-transparent pl-10 pr-5 pt-5 text-t-light outline-none focus:border-blue-500 dark:border-t-dark dark:text-t-dark dark:placeholder-t-dark dark:focus:border-yellow-500"
               />
             </div>
             {/* Send Button */}
             <div className="my-2 flex justify-center">
               <button
                 type="submit"
-                // onClick={}
-                className="w-44 rounded-lg bg-red-500 bg-opacity-60 px-2 py-2 text-white transition-colors hover:bg-opacity-80"
+                className="dark:bg-send-bg-dark bg-send-bg-light w-44 rounded-lg bg-opacity-60 px-2 py-2 text-t-light transition-colors hover:bg-opacity-80 dark:bg-opacity-60 dark:text-t-dark dark:hover:bg-opacity-80"
               >
                 Send
               </button>
@@ -132,6 +132,6 @@ const ContactUs = () => {
       </div>
     </>
   );
-};
+});
 
 export default ContactUs;

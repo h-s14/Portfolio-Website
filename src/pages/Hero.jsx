@@ -1,6 +1,9 @@
-import React from "react";
+import { React, useRef, useState } from "react";
 import { CircleChevronRight } from "lucide-react";
-const Hero = () => {
+import ConnectBanner from "../navBar/ConnectBanner";
+import ContactUs from "../components/ContactUs";
+
+const Hero = ({ onScroll }) => {
   const typingStyle = {
     display: "inline-block",
     animation: "typing 3s steps(12, end), blink-caret 0.75s step-end infinite",
@@ -10,18 +13,23 @@ const Hero = () => {
   };
   return (
     <>
-      <div className="px-10">
+      <div className="h-screen px-10">
         <div className="grid sm:grid-cols-1 md:grid-cols-2">
-          <div className="flex flex-col items-center justify-center sm:items-center md:items-start">
+          <div className="flex flex-col items-center justify-center sm:items-center md:items-start md:pt-20">
             {/* Div - 1 */}
-            <div className="flex w-[80%] items-center justify-center rounded-full bg-gray-400 bg-opacity-40 py-3 text-xl text-white text-opacity-50 backdrop-blur-md md:my-6 md:h-[10%] md:max-w-[50%] md:py-5">
-              Welcome to my Portfolio
+            <div className="relative z-40 flex h-12 w-[100%] items-center justify-center rounded-full bg-opacity-40 md:my-6 md:h-[25%] md:max-w-[50%]">
+              <div className="bg-banner-bg-light dark:bg-banner-bg-dark relative z-10 flex h-full w-full items-center justify-center rounded-full text-2xl font-bold text-t-light dark:text-t-dark">
+                Welcome to my Portfolio
+              </div>
+              <div className="absolute -inset-0.5 z-0 h-full w-[100%] rounded-full bg-t-light blur dark:bg-t-dark"></div>
             </div>
             {/* Div - 2 */}
-            <div className="w-full pt-5 text-5xl font-bold text-white text-opacity-80 dark:text-gray-300 dark:text-opacity-80">
-              <div className="pl-10 text-3xl md:text-5xl">I'm Harkirat</div>
+            <div className="w-full pt-5 text-5xl font-bold text-t-light text-opacity-80 dark:text-t-dark dark:text-opacity-80">
+              <div className="pl-5 text-3xl md:pl-10 md:text-5xl">
+                I'm Harkirat
+              </div>
               <div
-                className="pb-2 pl-10 text-3xl md:text-5xl"
+                className="pb-2 pl-5 text-3xl md:pl-10 md:text-5xl"
                 style={typingStyle}
               >
                 A Software Engineer
@@ -29,29 +37,35 @@ const Hero = () => {
             </div>
             {/* Div - 3 */}
             <div className="flex">
-              <div className="pl-10 pr-[5%] text-xl text-white text-opacity-50 dark:text-gray-300 dark:text-opacity-50">
+              <div className="pl-5 pr-[5%] text-xl text-t-light text-opacity-50 dark:text-t-dark dark:text-opacity-50 md:pl-10">
                 I'm a software engineer working in full-stack development,
                 blockchain, and AI. Proficient in React, Tailwind CSS, and
                 JavaScript, I tackle real-world challenges with innovative
                 solutions.
-                <div className="pt-10 text-2xl">
-                  <button className="flex items-center justify-center rounded-full border-2 border-gray-300 border-opacity-60 bg-gray-400 bg-opacity-60 px-2 py-2 backdrop-blur-lg">
-                    Let's Connect <CircleChevronRight className="ml-2" />
-                  </button>
-                </div>
               </div>
+            </div>
+            <div className="pt-10 text-2xl md:h-full md:pl-5">
+              <button
+                // onClick={() => setOpenBanner((prev) => !prev)}
+                onClick={onScroll}
+                className="bg-banner-bg-light dark:bg-banner-bg-dark relative flex h-12 items-center justify-center rounded-full px-6 py-3 font-bold md:h-[20%]"
+              >
+                <div className="absolute -inset-0.5 -z-10 h-full w-full rounded-full bg-t-light text-xl blur dark:bg-t-dark md:pl-10"></div>
+                Get in Touch
+                <CircleChevronRight className="my-1 ml-2 font-bold" />
+              </button>
             </div>
           </div>
           {/* Div - 4 */}
-          <div className="mt-16 flex items-center justify-center px-32 md:px-40 2xl:px-64">
+          <div className="mt-16 flex w-full items-center justify-center md:px-40 2xl:px-64">
             <img
               src="model-light.png"
-              className="block bg-transparent dark:hidden"
+              className="block w-[30%] bg-transparent dark:hidden md:w-[100%]"
               alt="model"
             />
             <img
               src="model-dark.png"
-              className="hidden bg-transparent dark:block"
+              className="hidden w-[30%] bg-transparent dark:block lg:w-[100%]"
               alt="model"
             />
           </div>
