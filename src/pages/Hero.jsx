@@ -18,7 +18,7 @@ const Hero = ({ onScroll }) => {
           <div className="flex flex-col items-center justify-center sm:items-center md:items-start md:pt-20">
             {/* Div - 1 */}
             <div className="relative z-40 flex h-12 w-[100%] items-center justify-center rounded-full bg-opacity-40 md:my-6 md:h-[25%] md:max-w-[50%]">
-              <div className="bg-banner-bg-light dark:bg-banner-bg-dark relative z-10 flex h-full w-full items-center justify-center rounded-full text-2xl font-bold text-t-light dark:text-t-dark">
+              <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full bg-banner-bg-light text-center text-2xl font-bold text-t-light dark:bg-banner-bg-dark dark:text-t-dark md:py-2">
                 Welcome to my Portfolio
               </div>
               <div className="absolute -inset-0.5 z-0 h-full w-[100%] rounded-full bg-t-light blur dark:bg-t-dark"></div>
@@ -48,7 +48,7 @@ const Hero = ({ onScroll }) => {
               <button
                 // onClick={() => setOpenBanner((prev) => !prev)}
                 onClick={onScroll}
-                className="bg-banner-bg-light dark:bg-banner-bg-dark relative flex h-12 items-center justify-center rounded-full px-6 py-3 font-bold md:h-[20%]"
+                className="relative flex h-12 items-center justify-center rounded-full bg-banner-bg-light px-6 py-3 font-bold dark:bg-banner-bg-dark md:h-[20%] md:py-5"
               >
                 <div className="absolute -inset-0.5 -z-10 h-full w-full rounded-full bg-t-light text-xl blur dark:bg-t-dark md:pl-10"></div>
                 Get in Touch
