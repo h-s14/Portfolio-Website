@@ -65,7 +65,7 @@ const Hero = ({ onScroll }) => {
             />
             <img
               src="model-dark.png"
-              className="hidden w-[30%] bg-transparent dark:block lg:w-[100%]"
+              className="hidden w-[30%] bg-transparent dark:block md:w-[100%]"
               alt="model"
             />
           </div>
