@@ -13,10 +13,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Installing Dependencies
-        run: |
-          npm install
+        run: npm install
+
       - name: Building the App
-        run: |
-          npm run build
+        run: npm run build
+
       - name: Moving the App to the serving directory
         run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/dist/* /var/www/harkirat.site/
+
+      - name: Restart Nginx
+        run: |
+          sudo systemctl restart nginx
