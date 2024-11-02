@@ -17,8 +17,5 @@ jobs:
 
       - name: Building The App
         run: |
-          npm run build
-
-      - name: Reload Nginx
-        run: |
-          sudo systemctl restart nginx
+          npm run build \
+          pwd
