@@ -15,4 +15,7 @@ jobs:
       - name: Installing Dependencies
         run: |
           npm install
+      - name: Building the App
+        run: |
+          npm run build
           pwd
