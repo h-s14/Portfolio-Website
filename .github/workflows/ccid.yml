@@ -18,4 +18,5 @@ jobs:
       - name: Building the App
         run: |
           npm run build
-          pwd
+      - name: Moving the App to the serving directory
+        run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/dist/* /var/www/harkirat.site/
