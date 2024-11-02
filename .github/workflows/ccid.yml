@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: My-Webs-portfolio-ec2
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
