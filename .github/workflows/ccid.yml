@@ -34,8 +34,8 @@ jobs:
 
       - name: Stop and Remove Existing Container
         run: |
-          sudo docker stop hs14/portfolio-container || true
-          sudo docker rm hs14/portfolio-container || true
+          sudo docker stop portfolio-container || true
+          sudo docker rm portfolio-container || true
 
       - name: Run New Container
         run: |
