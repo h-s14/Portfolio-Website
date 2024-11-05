@@ -39,7 +39,7 @@ jobs:
 
       - name: Run New Container
         run: |
-          sudo docker run -d --name portfolio-container --network app_network  hs14/portfolio:latest
+          sudo docker run -d --name portfolio-container --network portfolio_network  hs14/portfolio:latest
 
     # - name: Installing Dependencies
     #   run: npm install
