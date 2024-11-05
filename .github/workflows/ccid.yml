@@ -30,7 +30,7 @@ jobs:
 
       - name: Create Network if not Exists
         run: |
-          sudo docker network inspect portfolio_network >/dev/null 2>&1 || docker network create portfolio_network
+          sudo docker network inspect portfolio_network >/dev/null 2>&1 || sudo docker network create portfolio_network
 
       - name: Stop and Remove Existing Container
         run: |
