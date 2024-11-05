@@ -28,9 +28,9 @@ jobs:
       - name: Pull image from docker hub
         run: sudo docker pull hs14/portfolio:latest
 
-      # - name: Create Network if not Exists
-      #   run: |
-      #     sudo docker network inspect app_network >/dev/null 2>&1 || docker network create app_network
+      - name: Create Network if not Exists
+        run: |
+          sudo docker network inspect portfolio_network >/dev/null 2>&1 || docker network create portfolio_network
 
       - name: Stop and Remove Existing Container
         run: |
