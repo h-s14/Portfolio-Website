@@ -26,20 +26,20 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull hs14/portfolio:latest
+        run: sudo docker pull hs14/portfolio:latest
 
-      - name: Create Network if not Exists
-        run: |
-          docker network inspect app_network >/dev/null 2>&1 || docker network create app_network
+      # - name: Create Network if not Exists
+      #   run: |
+      #     sudo docker network inspect app_network >/dev/null 2>&1 || docker network create app_network
 
       - name: Stop and Remove Existing Container
         run: |
-          docker stop portfolio-container || true
-          docker rm portfolio-container || true
+          sudo docker stop portfolio-container || true
+          sudo docker rm portfolio-container || true
 
       - name: Run New Container
         run: |
-          docker run -d --name portfolio-container --network app_network  hs14/portfolio:latest
+          sudo docker run -d --name portfolio-container --network app_network  hs14/portfolio:latest
 
     # - name: Installing Dependencies
     #   run: npm install
