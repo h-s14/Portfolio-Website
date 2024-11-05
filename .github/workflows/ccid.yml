@@ -19,7 +19,7 @@ jobs:
         run: docker build --no-cache -t portfolio .
 
       - name: Publish Image to Docker Hub
-        run: docker push portfolio:latest
+        run: docker push hs14/portfolio:latest
 
   deploy:
     needs: build
