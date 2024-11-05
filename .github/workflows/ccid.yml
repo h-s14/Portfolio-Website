@@ -50,8 +50,8 @@ jobs:
       - name: Removing the files in the serving directory
         run: sudo rm -rf /var/www/harkirat.site/*
 
-      - name: Moving the App to the serving directory
-        run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/dist/* /var/www/harkirat.site/
+      # - name: Moving the App to the serving directory
+      #   run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/dist/* /var/www/harkirat.site/
 
       - name: Restart Nginx
         run: |
