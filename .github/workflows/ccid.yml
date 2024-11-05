@@ -12,47 +12,47 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
 
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      #     - name: Login to Docker Hub
+      #       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker Image
-        run: docker build --no-cache -t hs14/portfolio .
+      #     - name: Build Docker Image
+      #       run: docker build --no-cache -t hs14/portfolio .
 
-      - name: Publish Image to Docker Hub
-        run: docker push hs14/portfolio:latest
+      #     - name: Publish Image to Docker Hub
+      #       run: docker push hs14/portfolio:latest
 
-  deploy:
-    needs: build
-    runs-on: self-hosted
-    steps:
-      - name: Pull image from docker hub
-        run: sudo docker pull hs14/portfolio:latest
+      # deploy:
+      #   needs: build
+      #   runs-on: self-hosted
+      #   steps:
+      #     - name: Pull image from docker hub
+      #       run: sudo docker pull hs14/portfolio:latest
 
-      - name: Create Network if not Exists
+      #     - name: Create Network if not Exists
+      #       run: |
+      #         sudo docker network inspect portfolio_network >/dev/null 2>&1 || sudo docker network create portfolio_network
+
+      #     - name: Stop and Remove Existing Container
+      #       run: |
+      #         sudo docker stop portfolio-container || true
+      #         sudo docker rm portfolio-container || true
+
+      #     - name: Run New Container
+      #       run: |
+      #         sudo docker run -d --name portfolio-container --network portfolio_network  hs14/portfolio:latest
+
+      - name: Installing Dependencies
+        run: npm install
+
+      - name: Building the App
+        run: npm run build
+
+      - name: Removing the files in the serving directory
+        run: sudo rm -rf /var/www/harkirat.site/*
+
+      - name: Moving the App to the serving directory
+        run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/dist/* /var/www/harkirat.site/
+
+      - name: Restart Nginx
         run: |
-          sudo docker network inspect portfolio_network >/dev/null 2>&1 || sudo docker network create portfolio_network
-
-      - name: Stop and Remove Existing Container
-        run: |
-          sudo docker stop portfolio-container || true
-          sudo docker rm portfolio-container || true
-
-      - name: Run New Container
-        run: |
-          sudo docker run -d --name portfolio-container --network portfolio_network  hs14/portfolio:latest
-
-    # - name: Installing Dependencies
-    #   run: npm install
-
-    # - name: Building the App
-    #   run: npm run build
-
-    # - name: Removing the files in the serving directory
-    #   run: sudo rm -rf /var/www/harkirat.site/*
-
-    # - name: Moving the App to the serving directory
-    #   run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/dist/* /var/www/harkirat.site/
-
-    # - name: Restart Nginx
-    #   run: |
-    #     sudo systemctl restart nginx
+          sudo systemctl restart nginx
