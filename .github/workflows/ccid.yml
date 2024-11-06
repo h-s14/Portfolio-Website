@@ -27,6 +27,11 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:
+      - name: Downloading Built Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
       - name: Removing the files in the serving directory
         run: sudo rm -rf /var/www/harkirat.site/*
 
