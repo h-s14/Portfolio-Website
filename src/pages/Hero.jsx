@@ -18,18 +18,18 @@ const Hero = () => {
   };
   return (
     <>
-      <div className="h-screen px-10">
+      <div className="h-[85vh] px-10 xl:h-screen">
         <div className="grid sm:grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col items-center justify-center sm:items-center md:items-start md:pt-20">
             {/* Div - 1 */}
-            <div className="relative z-40 flex h-12 w-[100%] items-center justify-center rounded-full bg-opacity-40 md:my-6 md:h-[25%] md:max-w-[50%] lg:h-[20%]">
-              <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full bg-banner-bg-light text-center text-2xl font-bold text-t-light dark:bg-banner-bg-dark dark:text-t-dark md:px-2 md:py-2 lg:py-2 2xl:text-3xl">
+            <div className="relative z-40 my-8 flex h-12 w-[100%] items-center justify-center rounded-full bg-opacity-40 md:my-7 md:h-[25%] md:max-w-[50%] lg:h-[20%]">
+              <div className="relative z-10 flex h-full w-full items-center justify-center rounded-xl bg-banner-bg-light text-center text-2xl font-bold text-t-light dark:bg-banner-bg-dark dark:text-t-dark md:px-2 md:py-2 lg:py-2 2xl:text-3xl">
                 Welcome to my Portfolio
               </div>
-              <div className="absolute -inset-0.5 z-0 h-full w-[100%] rounded-full bg-t-light blur dark:bg-t-dark"></div>
+              <div className="absolute -inset-0.5 z-0 h-full w-[100%] rounded-xl bg-t-light blur dark:bg-t-dark"></div>
             </div>
             {/* Div - 2 */}
-            <div className="w-full pt-5 text-5xl font-bold text-t-light text-opacity-80 dark:text-t-dark dark:text-opacity-80">
+            <div className="my-8 w-full pt-5 text-5xl font-bold text-t-light text-opacity-80 dark:text-t-dark dark:text-opacity-80 md:my-0">
               <div className="pl-5 text-3xl md:pl-10 md:text-5xl">
                 I'm Harkirat
               </div>
@@ -49,10 +49,10 @@ const Hero = () => {
                 solutions.
               </div>
             </div>
-            <div className="pt-10 text-2xl md:h-full md:pl-5">
+            <div className="my-8 pt-10 text-2xl md:my-0 md:h-full md:pl-5">
               <button
                 onClick={downPDF}
-                className="relative flex h-12 items-center justify-center rounded-full bg-banner-bg-light px-6 py-3 font-bold dark:bg-banner-bg-dark md:h-[20%] md:py-5 lg:h-[15%]"
+                className="relative flex h-12 items-center justify-center rounded-xl bg-banner-bg-light px-6 py-3 font-bold dark:bg-banner-bg-dark md:h-[20%] md:py-5 lg:h-[15%]"
               >
                 <div className="absolute -inset-0.5 -z-10 h-full w-full rounded-full bg-t-light text-xl blur dark:bg-t-dark md:pl-10"></div>
                 Resume

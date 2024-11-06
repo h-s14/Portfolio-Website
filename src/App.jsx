@@ -5,12 +5,11 @@ import "./App.css";
 import { IoMdSunny, IoMdMoon } from "react-icons/io";
 import NavBar from "./navBar/NavBar";
 import Home from "./components/Home";
-import { Sun } from "lucide-react";
 
 const LazyProjects = lazy(() => import("./components/projects/Projects"));
 const LazySkills = lazy(() => import("./components/Skills"));
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
