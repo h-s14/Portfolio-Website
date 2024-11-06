@@ -25,6 +25,7 @@ jobs:
           path: ./dist
   deploy:
     runs-on: self-hosted
+    needs: build
     steps:
       - name: Removing the files in the serving directory
         run: sudo rm -rf /var/www/harkirat.site/*
