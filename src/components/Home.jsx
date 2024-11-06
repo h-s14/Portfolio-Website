@@ -5,23 +5,14 @@ import Projects from "./projects/Projects";
 import ContactUs from "./ContactUs";
 
 const Home = ({ sharedBg = true }) => {
-  const contactRef = useRef(null);
-
-  const scrollToContact = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   return (
     <div
-      className={`${sharedBg ? "shared-bg dark:dark-shared-bg" : "bg-grad-light dark:bg-grad-dark"} pt-16 text-t-light dark:bg-grad-dark dark:text-t-dark`}
+      className={`${sharedBg ? "shared-bg dark:dark-shared-bg" : "bg-grad-light dark:bg-grad-dark"} dark:bg-grad-dark pt-16 text-t-light dark:text-t-dark`}
     >
-      <Hero sharedBg={sharedBg} onScroll={scrollToContact} />
+      <Hero sharedBg={sharedBg} />
       <Skills sharedBg={sharedBg} />
       <Projects sharedBg={sharedBg} />
-      <div ref={contactRef}>
-        <ContactUs sharedBg={sharedBg} />
-      </div>
+      <ContactUs sharedBg={sharedBg} />
     </div>
   );
 };

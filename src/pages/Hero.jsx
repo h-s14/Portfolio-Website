@@ -1,15 +1,20 @@
 import { React, useRef, useState } from "react";
 import { CircleChevronRight } from "lucide-react";
-import ConnectBanner from "../navBar/ConnectBanner";
-import ContactUs from "../components/ContactUs";
 
-const Hero = ({ onScroll }) => {
+const Hero = () => {
   const typingStyle = {
     display: "inline-block",
     animation: "typing 3s steps(12, end), blink-caret 0.75s step-end infinite",
     whiteSpace: "nowrap",
     overflow: "hidden",
     borderRight: "2px solid",
+  };
+
+  const downPDF = () => {
+    const link = document.createElement("a");
+    link.href = "HS_Resume.pdf";
+    link.download = "Harkirat-Singh-Resume.pdf";
+    link.click();
   };
   return (
     <>
@@ -46,12 +51,11 @@ const Hero = ({ onScroll }) => {
             </div>
             <div className="pt-10 text-2xl md:h-full md:pl-5">
               <button
-                // onClick={() => setOpenBanner((prev) => !prev)}
-                onClick={onScroll}
+                onClick={downPDF}
                 className="relative flex h-12 items-center justify-center rounded-full bg-banner-bg-light px-6 py-3 font-bold dark:bg-banner-bg-dark md:h-[20%] md:py-5 lg:h-[15%]"
               >
                 <div className="absolute -inset-0.5 -z-10 h-full w-full rounded-full bg-t-light text-xl blur dark:bg-t-dark md:pl-10"></div>
-                Get in Touch
+                Resume
                 <CircleChevronRight className="my-1 ml-2 font-bold" />
               </button>
             </div>

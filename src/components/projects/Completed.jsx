@@ -6,16 +6,16 @@ const Completed = () => {
       <div>
         <ul className="grid items-center justify-center gap-8 px-8 sm:grid-cols-2 md:grid-cols-3">
           <ProjectComponent
-            img="port-lg.png"
-            img_d="port-dr.png"
-            title="Portfolio"
-            url={"https://harkirat.site"}
-          />
-          <ProjectComponent
             img="hosp-lg.png"
             img_d="hosp-dr.png"
             title="Hospital Website"
             url={"https://healthflow.harkirat.site"}
+          />
+          <ProjectComponent
+            img="admin-dash.png"
+            img_d="admin-dash.png"
+            title="Hospital Admin DashBoard"
+            url={"https://dash-healthflow.harkirat.site"}
           />
           <ProjectComponent
             img="coin.png"
