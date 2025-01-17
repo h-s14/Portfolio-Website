@@ -49,6 +49,9 @@ jobs:
         with:
           name: build-output
 
+      - name: test
+        run: whoami
+
       - name: Removing the files in the serving directory
         run: sudo rm -rf /var/www/harkirat.site/*
 
