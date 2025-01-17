@@ -40,7 +40,7 @@ jobs:
 
       - name: Restart Nginx
         run: sudo systemctl restart nginx
-  deploy-PCS:
+  deploy-PRS:
     runs-on: PRS
     needs: build
     steps:
