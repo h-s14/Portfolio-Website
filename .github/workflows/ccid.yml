@@ -48,7 +48,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-output
-      #
 
-      # - name: Removing the files in the serving directory
-      #   run: sudo rm
+      - name: Removing the files in the serving directory
+        run: sudo rm -rf /var/www/harkirat.site/*
+
+      - name: Moving the App to the serving directory
+        run: sudo mv /home/the-server/port/_work/Portfolio-Website/Portfolio-Website/* /var/www/harkirat.site/
+
+      - name: Restart Nginx
+        run: sudo systemctl restart nginx
