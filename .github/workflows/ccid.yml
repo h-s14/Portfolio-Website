@@ -6,57 +6,57 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Source
-        uses: actions/checkout@v4
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Source
+  #       uses: actions/checkout@v4
 
-      - name: Installing Dependencies
-        run: npm install
+  #     - name: Installing Dependencies
+  #       run: npm install
 
-      - name: Building the App
-        run: npm run build
+  #     - name: Building the App
+  #       run: npm run build
 
-      - name: Uploading the Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: ./dist
-  deploy-AWS:
-    runs-on: AWS
-    needs: build
-    steps:
-      - name: Downloading Built Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
+  #     - name: Uploading the Build Artifact
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: build-output
+  #         path: ./dist
+  # deploy-AWS:
+  #   runs-on: AWS
+  #   needs: build
+  #   steps:
+  #     - name: Downloading Built Artifact
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: build-output
 
-      - name: Removing the files in the serving directory
-        run: sudo rm -rf /var/www/harkirat.site/*
+  #     - name: Removing the files in the serving directory
+  #       run: sudo rm -rf /var/www/harkirat.site/*
 
-      - name: Moving the App to the serving directory
-        run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/* /var/www/harkirat.site/
+  #     - name: Moving the App to the serving directory
+  #       run: sudo mv /home/ubuntu/portfolio/_work/Portfolio-Website/Portfolio-Website/* /var/www/harkirat.site/
 
-      - name: Restart Nginx
-        run: sudo systemctl restart nginx
+  #     - name: Restart Nginx
+  #       run: sudo systemctl restart nginx
   deploy-PRS:
     runs-on: PRS
-    needs: build
+    # needs: build
     steps:
-      - name: Downloading Built Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
+      # - name: Downloading Built Artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: build-output
 
       - name: test
-        run: whoami
+        run: sudo whoami
 
-      - name: Removing the files in the serving directory
-        run: sudo rm -rf /var/www/harkirat.site/*
+      # - name: Removing the files in the serving directory
+      #   run: sudo rm -rf /var/www/harkirat.site/*
 
-      - name: Moving the App to the serving directory
-        run: sudo mv /home/the-server/port/_work/Portfolio-Website/Portfolio-Website/* /var/www/harkirat.site/
+      # - name: Moving the App to the serving directory
+      #   run: sudo mv /home/the-server/port/_work/Portfolio-Website/Portfolio-Website/* /var/www/harkirat.site/
 
-      - name: Restart Nginx
-        run: sudo systemctl restart nginx
+      # - name: Restart Nginx
+      #   run: sudo systemctl restart nginx
