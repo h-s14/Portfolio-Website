@@ -23,8 +23,8 @@ jobs:
         with:
           name: build-output
           path: ./dist
-  deploy:
-    runs-on: self-hosted
+  deploy-AWS:
+    runs-on: AWS
     needs: build
     steps:
       - name: Downloading Built Artifact
@@ -40,3 +40,14 @@ jobs:
 
       - name: Restart Nginx
         run: sudo systemctl restart nginx
+  deploy-PCS:
+    runs-on: PCS
+    needs: build
+    steps:
+      - name: Downloading Built Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      # - name: Removing the files in the serving directory
+      #   run: sudo rm
