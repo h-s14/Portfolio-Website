@@ -17,19 +17,25 @@ const ContactUs = forwardRef((props, ref) => {
       ...formDetails,
       [category]: value,
     });
+  };
 
-    const handleSubmit = async (e) => {
-      e.preventDefaults();
-      let response = await fetch("https://localhost:5000/contact", {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setButtonText("Sending...");
+
+    try {
+      const response = await fetch("http://localhost:5000/contact", {
         method: "POST",
         headers: {
-          "Content-Type": "Application/json;charset=utff-8",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formDetails),
       });
-      let result = response.json();
+
+      const result = await response.json();
       setFormDetails(formInitialDetails);
-      if (result.code === 200) {
+
+      if (response.ok && result.code === 200) {
         setStatus({ success: true, message: "Message sent successfully" });
       } else {
         setStatus({
@@ -37,7 +43,14 @@ const ContactUs = forwardRef((props, ref) => {
           message: "Something went wrong, message not sent",
         });
       }
-    };
+    } catch (error) {
+      setStatus({
+        success: false,
+        message: "Something went wrong, message not sent",
+      });
+    } finally {
+      setButtonText("Send");
+    }
   };
   return (
     <>
@@ -64,7 +77,7 @@ const ContactUs = forwardRef((props, ref) => {
             Get In Touch
           </div>
           <form
-            onSubmit={onFormUpdate}
+            onSubmit={handleSubmit}
             className="flex flex-wrap items-center justify-center"
           >
             {/* First Name Field */}
@@ -124,10 +137,19 @@ const ContactUs = forwardRef((props, ref) => {
                 type="submit"
                 className="dark:bg-send-bg-dark bg-send-bg-light w-44 rounded-lg bg-opacity-60 px-2 py-2 text-t-light transition-colors hover:bg-opacity-80 dark:bg-opacity-60 dark:text-t-dark dark:hover:bg-opacity-80"
               >
-                Send
+                {buttonText}
               </button>
             </div>
           </form>
+          {status.message && (
+            <div
+              className={`mt-4 text-center text-lg ${
+                status.success ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
         </div>
       </div>
     </>
