@@ -81,7 +81,8 @@ const Hero = (_props: HeroProps) => {
             </button>
 
             <Link
-              href="#projects"
+              href={{ pathname: "/", hash: "projects" }}
+              prefetch={false}
               className="group inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-t-light transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/70 hover:bg-emerald-300/20 hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-t-dark dark:hover:border-amber-300/70 dark:hover:bg-amber-300/20"
             >
               View Projects

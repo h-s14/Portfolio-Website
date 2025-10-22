@@ -66,18 +66,31 @@ const ContactUs = forwardRef<HTMLDivElement, ContactUsProps>(({ sharedBg }, ref)
     setButtonText("Sending...");
 
     try {
+      const payload: ContactFormDetails = {
+        firstName: formDetails.firstName.trim(),
+        lastName: formDetails.lastName.trim(),
+        email: formDetails.email.trim(),
+        phone: formDetails.phone.trim(),
+        message: formDetails.message.trim(),
+      };
+
+      if (!payload.email || !payload.message) {
+        setStatus({ success: false, message: "Email and message are required." });
+        return;
+      }
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formDetails),
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
-      setFormDetails(formInitialDetails);
 
       if (response.ok && result?.success) {
+        setFormDetails(formInitialDetails);
         setStatus({ success: true, message: result.message ?? "Message sent successfully" });
       } else {
         setStatus({
