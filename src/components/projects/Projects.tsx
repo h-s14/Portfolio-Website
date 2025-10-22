@@ -24,7 +24,7 @@ const Projects = ({ sharedBg = false }: ProjectsProps) => {
         <div className="flex justify-center px-10 text-3xl font-bold text-t-light dark:text-t-dark">PROJECTS</div>
         <h3 className="flex justify-center text-wrap py-1 pt-2 text-center">
           Here are some of my most recently Completed Projects and <br />
-          The Projects I'm Currently Working On
+          The Projects I&apos;m Currently Working On
         </h3>
         <div className="flex h-full w-full justify-center">
           <div className="z-50 my-5 flex h-[2rem] w-[50%] items-center justify-center rounded-full border-2 border-black bg-skills-bg-light bg-opacity-40 backdrop-blur-lg dark:bg-skills-bg-dark dark:bg-opacity-40 sm:w-[30%] md:h-[2rem] lg:h-[3rem]">

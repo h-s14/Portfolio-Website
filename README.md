@@ -7,13 +7,13 @@ This project is a personal portfolio built with the Next.js App Router, Tailwind
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
@@ -21,15 +21,15 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 ## Building for Production
 
 ```bash
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
 
 The `start` command serves the pre-built production bundle.
 
 ## Environment Variables
 
-To enable email delivery for the contact form, provide the following environment variables before running `npm run dev` or `npm run start`:
+To enable email delivery for the contact form, provide the following environment variables before running `pnpm dev` or `pnpm start`:
 
 - `EMAIL_USER` – the SMTP username (for example, a Gmail address)
 - `EMAIL_PASS` – the SMTP password or app password
@@ -38,10 +38,10 @@ To enable email delivery for the contact form, provide the following environment
 ## Linting
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
-This project uses the default `next lint` configuration.
+Linting uses ESLint’s flat config via `eslint-config-next`.
 
 ## Styling
 

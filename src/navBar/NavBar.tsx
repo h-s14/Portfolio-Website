@@ -75,7 +75,7 @@ const NavBar = () => {
             type="button"
             onClick={() => setOpenBanner((prev) => !prev)}
           >
-            Let's Connect
+            Let&apos;s Connect
           </button>
         </div>
       </div>

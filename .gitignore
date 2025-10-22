@@ -10,6 +10,29 @@ lerna-debug.log*
 node_modules
 *.local
 
+# Next.js build output
+.next/
+out/
+.vercel/
+
+# Build artifacts
+dist/
+build/
+
+# Testing coverage
+coverage/
+
+# Turborepo cache
+.turbo/
+
+# TypeScript incremental cache
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

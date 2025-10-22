@@ -4,20 +4,28 @@ import { useCallback, useEffect, useState } from "react";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
 
 const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === "undefined") {
+      return true;
+    }
 
-  useEffect(() => {
     const storedTheme = window.localStorage.getItem("theme");
     if (storedTheme === "light") {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
+      return false;
     }
-  }, []);
+
+    if (storedTheme === "dark") {
+      return true;
+    }
+
+    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? true;
+  });
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     document.documentElement.classList.toggle("dark", isDarkMode);
     window.localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);

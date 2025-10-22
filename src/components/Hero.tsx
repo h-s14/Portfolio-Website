@@ -39,14 +39,14 @@ const Hero = (_props: HeroProps) => {
             <div className="absolute -inset-0.5 z-0 h-full w-full rounded-xl bg-t-light blur dark:bg-t-dark"></div>
           </div>
           <div className="my-8 w-full pt-5 text-5xl font-bold text-t-light text-opacity-80 dark:text-t-dark dark:text-opacity-80 md:my-0">
-            <div className="pl-5 text-3xl md:pl-10 md:text-5xl">I'm Harkirat</div>
+            <div className="pl-5 text-3xl md:pl-10 md:text-5xl">I&apos;m Harkirat</div>
             <div className="pb-2 pl-5 text-3xl md:pl-10 md:text-5xl" style={typingStyle}>
               A Software Engineer
             </div>
           </div>
           <div className="flex">
             <div className="pl-5 pr-[5%] text-xl text-t-light text-opacity-50 dark:text-t-dark dark:text-opacity-50 md:pl-10">
-              I'm a software engineer working in full-stack development, blockchain, and AI. Proficient in React, Tailwind CSS, and
+              I&apos;m a software engineer working in full-stack development, blockchain, and AI. Proficient in React, Tailwind CSS, and
               JavaScript, I tackle real-world challenges with innovative solutions.
             </div>
           </div>
