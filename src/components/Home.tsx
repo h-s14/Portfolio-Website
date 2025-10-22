@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
-import Hero from "../pages/Hero";
-import Skills from "./Skills";
-import Projects from "./projects/Projects";
-import ContactUs from "./ContactUs";
+import Skills from "@/components/Skills";
+import Projects from "@/components/projects/Projects";
+import ContactUs from "@/components/ContactUs";
+import Hero from "@/components/Hero";
 
-const Home = ({ sharedBg = true }) => {
+type HomeProps = {
+  sharedBg?: boolean;
+};
+
+const Home = ({ sharedBg = true }: HomeProps) => {
   return (
     <div
       className={`${sharedBg ? "shared-bg dark:dark-shared-bg" : "bg-grad-light dark:bg-grad-dark"} dark:bg-grad-dark pt-16 text-t-light dark:text-t-dark`}

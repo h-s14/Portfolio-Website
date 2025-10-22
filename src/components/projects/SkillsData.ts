@@ -1,4 +1,9 @@
-export const SkillsData = [
+export type Skill = {
+  title: string;
+  image: string;
+};
+
+export const SkillsData: Skill[] = [
   {
     title: "HTML",
     image: "/html.svg",
