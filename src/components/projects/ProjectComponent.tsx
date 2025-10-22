@@ -12,8 +12,9 @@ type ProjectComponentProps = {
 };
 
 const ProjectComponent = ({ img, imgDark, url, title }: ProjectComponentProps) => {
-  const isDisabled = !url;
-  const isInternalLink = !!url && url.startsWith("/");
+  const sanitizedUrl = url?.trim();
+  const isDisabled = !sanitizedUrl;
+  const isInternalLink = !!sanitizedUrl && sanitizedUrl.startsWith("/");
 
   return (
     <li className="relative z-10 flex flex-col items-center">
@@ -37,7 +38,8 @@ const ProjectComponent = ({ img, imgDark, url, title }: ProjectComponentProps) =
         </div>
       ) : isInternalLink ? (
         <Link
-          href={url as Route}
+          href={sanitizedUrl as Route}
+          prefetch={false}
           target="_blank"
           rel="noreferrer"
           className="group absolute z-50 flex h-48 w-72 cursor-pointer items-center justify-center rounded-2xl bg-gray-500 bg-opacity-30 pb-4 transition-transform duration-300 hover:bg-opacity-70 hover:shadow-lg"
@@ -49,7 +51,7 @@ const ProjectComponent = ({ img, imgDark, url, title }: ProjectComponentProps) =
         </Link>
       ) : (
         <a
-          href={url}
+          href={sanitizedUrl}
           target="_blank"
           rel="noreferrer noopener"
           className="group absolute z-50 flex h-48 w-72 cursor-pointer items-center justify-center rounded-2xl bg-gray-500 bg-opacity-30 pb-4 transition-transform duration-300 hover:bg-opacity-70 hover:shadow-lg"
