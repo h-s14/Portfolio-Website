@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import type { Route } from "next";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import ConnectBanner from "@/navBar/ConnectBanner";
 
 type NavItem = {
-  href: string;
+  href: Route;
   label: string;
 };
 
