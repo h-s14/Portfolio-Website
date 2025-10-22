@@ -1,52 +1,34 @@
-# Define the base image
-FROM node:20.11.1-alpine AS base
+# syntax=docker/dockerfile:1
 
-# Install pnpm globally in the base stage
-RUN corepack enable && corepack prepare pnpm@9.4.0 --activate
+ARG PNPM_VERSION=10.18.3
 
-# Builder stage
-FROM base AS builder
-RUN apk add --no-cache libc6-compat python3 make g++ cairo-dev jpeg-dev pango-dev giflib-dev
-RUN apk update
+FROM node:20-alpine AS base
+ARG PNPM_VERSION
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="${PNPM_HOME}:${PATH}"
+RUN apk add --no-cache libc6-compat
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
+
+FROM base AS deps
 WORKDIR /app
-RUN yarn global add turbo
-COPY . .
-
-# Install and cache dependencies for all workspaces
+COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-# Build only the main workspace
-RUN pnpm run build:main
-
-# Installer stage to install isolated dependencies for deployment
-FROM base AS installer
+FROM base AS builder
 WORKDIR /app
-COPY --from=builder /app ./
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN pnpm run build
+RUN pnpm prune --prod
 
-# Install only production dependencies using pnpm
-RUN pnpm install --prod --frozen-lockfile
-
-# Runner for `main`
-FROM base AS main_runner
+FROM base AS runner
 WORKDIR /app
-
-# Add runtime dependencies needed for production (no dev/build deps)
-RUN apk add --no-cache libc6-compat cairo jpeg pango giflib
-
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-# Copy `main` build output
-COPY --from=installer /app/apps/main/.next/standalone ./next/standalone
-COPY --from=installer /app/apps/main/.next/static ./next/standalone/apps/main/.next/static
-COPY --from=installer /app/apps/main/public ./next/standalone/apps/main/public
-
-# Fix permissions for cache directory
-RUN mkdir -p /app/next/standalone/apps/main/.next/cache
-RUN chown -R nextjs:nodejs /app/next
-
-USER nextjs
+ENV NODE_ENV=production
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/pnpm-lock.yaml ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 3000
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-CMD ["node", "next/standalone/apps/main/server.js"]
+CMD ["pnpm", "run", "start"]
