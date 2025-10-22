@@ -1,7 +1,7 @@
 {
   "name": "portfolio-website",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@10.18.3",
   "scripts": {
     "dev": "next dev",
