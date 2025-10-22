@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: inherit;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.shared-bg {
+  --_mesh-gradient-blur: 0px;
+  --_mesh-gradient-blend-mode: normal;
+
+  background: radial-gradient(at 15% 1%, #96ab96 0px, transparent 50%),
+    radial-gradient(at 68% 95%, #96aba0 0px, transparent 50%),
+    radial-gradient(at 11% 78%, #96abab 0px, transparent 50%),
+    radial-gradient(at 91% 59%, #ab96ab 0px, transparent 50%),
+    radial-gradient(at 42% 63%, #ab9696 0px, transparent 50%), #000000;
+  mix-blend-mode: var(--_mesh-gradient-blend-mode);
+  filter: blur(var(--_mesh-gradient-blur));
+}
+
+.dark .shared-bg,
+.dark-shared-bg {
+  --_mesh-gradient-blur: 0px;
+  --_mesh-gradient-blend-mode: normal;
+
+  background:
+    radial-gradient(at 86% 74%, #895b1d 0px, transparent 50%),
+    radial-gradient(at 29% 76%, #959ea7 0px, transparent 50%),
+    radial-gradient(at 54% 39%, #a7977c 0px, transparent 50%),
+    radial-gradient(at 19% 28%, #9a6a52 0px, transparent 50%) #000000;
+  mix-blend-mode: var(--_mesh-gradient-blend-mode);
+  filter: blur(var(--_mesh-gradient-blur));
+}
+
+.bg-grad-light {
+  background: radial-gradient(circle at 20% 20%, rgba(150, 171, 150, 0.7), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(171, 150, 171, 0.7), transparent 55%),
+    #0b0b0b;
+}
+
+.dark .bg-grad-dark {
+  background: radial-gradient(circle at 15% 75%, rgba(137, 91, 29, 0.6), transparent 55%),
+    radial-gradient(circle at 70% 30%, rgba(149, 158, 167, 0.6), transparent 55%),
+    #050505;
+}
+
+.svg {
+  filter: invert(100%) sepia(14%) saturate(1676%) hue-rotate(1deg) brightness(113%) contrast(106%);
+}
+
+.dark .svg {
+  filter: invert(82%) sepia(29%) saturate(10%) hue-rotate(314deg) brightness(86%) contrast(95%);
+}
+
+.number-input::-webkit-inner-spin-button,
+.number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.number-input {
+  -moz-appearance: textfield;
+}

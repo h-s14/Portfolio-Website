@@ -1,15 +1,30 @@
-#Build Stage
-FROM node:alpine3.19 as build
-
-# Set working directory and install dependencies
+# Install dependencies only when needed
+FROM node:18-alpine AS deps
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Rebuild the source code only when needed
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
-# Production stage
-FROM nginx:alpine
-COPY --from=0 /app/dist /usr/share/nginx/html
-EXPOSE 80
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+# Production image, copy all the files and run next
+FROM node:18-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/next.config.mjs ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --from=builder /app/postcss.config.js ./postcss.config.js
+COPY --from=builder /app/tailwind.config.js ./tailwind.config.js
+
+EXPOSE 3000
+CMD ["npm", "run", "start"]
