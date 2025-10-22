@@ -1,34 +1,42 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { startTransition, useCallback, useEffect, useState } from "react";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
 
 const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window === "undefined") {
-      return true;
-    }
-
-    const storedTheme = window.localStorage.getItem("theme");
-    if (storedTheme === "light") {
-      return false;
-    }
-
-    if (storedTheme === "dark") {
-      return true;
-    }
-
-    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? true;
-  });
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
     }
 
+    const storedTheme = window.localStorage.getItem("theme");
+    let nextIsDark = true;
+
+    if (storedTheme === "light") {
+      nextIsDark = false;
+    } else if (storedTheme === "dark") {
+      nextIsDark = true;
+    } else {
+      nextIsDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? true;
+    }
+
+    startTransition(() => {
+      setIsDarkMode(nextIsDark);
+      setInitialized(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !initialized) {
+      return;
+    }
+
     document.documentElement.classList.toggle("dark", isDarkMode);
     window.localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-  }, [isDarkMode]);
+  }, [initialized, isDarkMode]);
 
   const toggleDarkMode = useCallback(() => {
     setIsDarkMode((prev) => !prev);
